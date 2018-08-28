@@ -44,12 +44,6 @@ echo "Enter domain name for the webserver (eg. pdns.example.com):"
 read -s NEW_PDNS_DOMAIN_NAME
 sed -i -- "s/changeme_domain_name/$NEW_PDNS_DOMAIN_NAME/g" *.pp
 
-echo "Creating self signed certificates"
-mkdir -p /etc/nginx/certs
-openssl req -x509 -newkey rsa:4096 -keyout /etc/nginx/certs/key.pem -out /etc/nginx/certs/cert.pem -days 36500
-echo "We are now removing the password from the key file, please enter the password again."
-openssl rsa -in /etc/nginx/certs/key.pem -out /etc/nginx/certs/key.pem
-
 echo "Applying puppet manifests"
 /opt/puppetlabs/bin/puppet apply powerdns.pp
 /opt/puppetlabs/bin/puppet apply powerdns_admin.pp
