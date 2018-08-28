@@ -2,6 +2,7 @@ class  { 'powerdns_admin':
   backend_install => false,
   db_password     => 'changeme_pdns_admin_db_password',
   pdns_api_key    => 'changeme_api_key',
+  signup_enable   => true
 }
 
 class { 'nginx':
