@@ -17,7 +17,6 @@ nginx::resource::server { 'poweradmin':
   index_files          => [ 'index.html', 'index.htm', 'index.php'],
   proxy_set_header     => ['Host $host', 'X-Real-IP $remote_addr', 'X-Forwarded-For $proxy_add_x_forwarded_for'],
   client_max_body_size => '10m',
-  ssl                  => true,
   listen_port          => 80,
 }
 
