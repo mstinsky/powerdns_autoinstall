@@ -25,23 +25,23 @@ done
 git clone https://github.com/mstinsky/powerdns_admin.git /etc/puppetlabs/code/environments/production/modules/powerdns_admin
 
 echo "Enter powerdns db password:"
-read NEW_PDNS_DB_PASSWORD
+read -s NEW_PDNS_DB_PASSWORD
 sed -i -- "s/changeme_pdns_db_password/$NEW_PDNS_DB_PASSWORD/g" *.pp
 
 echo "Enter powerdns db root password:"
-read NEW_PDNS_DB_ROOT_PASSWORD
+read -s NEW_PDNS_DB_ROOT_PASSWORD
 sed -i -- "s/changeme_pdns_db_root_password/$NEW_PDNS_DB_ROOT_PASSWORD/g" *.pp
 
 echo "Enter powerdns api key (any random string):"
-read NEW_PDNS_API_KEY
+read -s NEW_PDNS_API_KEY
 sed -i -- "s/changeme_api_key/$NEW_PDNS_API_KEY/g" *.pp
 
 echo "Enter powerdns_admin db password:"
-read NEW_PDNS_ADMIN_DB_PASSWORD
+read -s NEW_PDNS_ADMIN_DB_PASSWORD
 sed -i -- "s/changeme_pdns_admin_db_password/$NEW_PDNS_ADMIN_DB_PASSWORD/g" *.pp
 
 echo "Enter domain name for the webserver (eg. pdns.example.com):"
-read NEW_PDNS_DOMAIN_NAME
+read -s NEW_PDNS_DOMAIN_NAME
 sed -i -- "s/changeme_domain_name/$NEW_PDNS_DOMAIN_NAME/g" *.pp
 
 echo "Creating self signed certificates"
